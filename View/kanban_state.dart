@@ -80,16 +80,8 @@ class KanbanState extends State<Kanban> {
     );
     return Stack(
       children: [
-        Draggable<String>(
-          data: listId,
-          childWhenDragging: Opacity(
-            opacity: 0.2,
-            child: header,
-          ),
-          feedback: SizedBox(
-            width: _tileWidth,
-            child: header,
-          ),
+        SizedBox(
+          width: _tileWidth,
           child: header,
         ),
         _buildItemDragTarget(listId, 0, _headerHeight),
