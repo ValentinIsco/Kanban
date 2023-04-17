@@ -142,15 +142,15 @@ class KanbanState extends State<Kanban> {
       },
       onAccept: (Item data) {
         setState(() {
-          if (data.behavior != null) {
-            data.behavior!();
-          }
           _board[data.header.id]?.remove(data);
           data.setHeader = Header(id: listId);
           if (_board[listId]!.length > targetPosition) {
             _board[listId]?.insert(targetPosition + 1, data);
           } else {
             _board[listId]?.add(data);
+          }
+          if (data.behavior != null) {
+            data.behavior!();
           }
         });
       },
